@@ -38,8 +38,8 @@ module Pod
       snapshots = configurator.ask_with_answers("Would you like to do view based testing", ["Yes", "No"]).to_sym
       case snapshots
         when :yes
-          configurator.add_pod_to_podfile "FBSnapshotTestCase"
-          configurator.add_line_to_pch "@import FBSnapshotTestCase;"
+          configurator.add_pod_to_podfile ""
+          configurator.add_line_to_pch ""
 
           if keep_demo == :no
               puts " Putting demo application back in, you cannot do view tests without a host application."
@@ -57,11 +57,11 @@ module Pod
       loop do
         prefix = configurator.ask("What is your class prefix")
 
-        if prefix.include?(' ')
-          puts 'Your class prefix cannot contain spaces.'.red
-        else
-          break
-        end
+#        if prefix.include?(' ')
+#          puts 'Your class prefix cannot contain spaces.'.red
+#        else
+#          break
+#        end
       end
 
       Pod::ProjectManipulator.new({
